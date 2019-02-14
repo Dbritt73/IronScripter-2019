@@ -6,7 +6,7 @@ The Get-Counter cmdlet is very useful in obtaining performance counter informati
 output is less than friendly. Especially if you wish to consume the output such as with additional filtering, exporting
 to a json file or writing to a database.
 
-Your challenge is to create a PowerShell function that takes the output from Get-Counter and transforms it into a more 
+Your challenge is to create a PowerShell function that takes the output from Get-Counter and transforms it into a more
 user friendly object. Each counter sample should be a separate object with these properties:
 
 Timestamp
@@ -15,7 +15,7 @@ CounterSet
 Counter
 Value
 
-You are free to use whatever property names you want as long as it is clear what the values represent. 
+You are free to use whatever property names you want as long as it is clear what the values represent.
 
 A sample might look like this:
 
@@ -65,19 +65,5 @@ SERVER01     memory                                                      % commi
 SERVER01     memory                                                      cache faults/sec          9.98958286299047
 SERVER01     physicaldisk(_total)                                        % disk time               0.06629201377444
 SERVER01     physicaldisk(_total)                                        current disk queue length                0
-
-PS C:\> get-counter -computername server01 | myfunction
-
-   Timestamp: 2/6/2019 4:51:34 PM
-
-Computername Counterset                                                  Counter                              Value
------------- ----------                                                  -------                              -----
-SERVER01     network interface(intel[r] ethernet connection [2] i219-lm) bytes total/sec            63.933330323139
-SERVER01     processor(_total)                                           % processor time          2.29286092227079
-SERVER01     memory                                                      % committed bytes in use  58.2262708009747
-SERVER01     memory                                                      cache faults/sec          9.98958286299047
-SERVER01     physicaldisk(_total)                                        % disk time               0.06629201377444
-SERVER01     physicaldisk(_total)                                        current disk queue length                0
-
 
 All the information you need to know is included in this post. The Chairman will share a possible solution within the week. Good Luck and Good Scripting
