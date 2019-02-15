@@ -31,7 +31,7 @@ Function Format-Counter {
                 }
 
                 $OutputObject = New-Object -TypeName PSObject -Property $Props
-                $OutputObject.PSObject.typenames.insert(0, 'Format.PerformanceCounters')
+                $OutputObject.PSObject.typenames.insert(0, 'Format.PerformanceCounter')
                 Write-Output -InputObject $OutputObject
 
             }

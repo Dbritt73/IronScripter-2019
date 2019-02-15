@@ -1,33 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- *******************************************************************
-These sample files contain formatting information used by the Windows
-PowerShell engine. Do not edit or change the contents of this file
-directly. Please see the Windows PowerShell documentation or type
-Get-Help Update-FormatData for more information.
-
-Copyright (c) Microsoft Corporation.  All rights reserved.
-
-THIS SAMPLE CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
-OF ANY KIND,WHETHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
-PURPOSE. IF THIS CODE AND INFORMATION IS MODIFIED, THE ENTIRE RISK OF USE
-OR RESULTS IN CONNECTION WITH THE USE OF THIS CODE AND INFORMATION
-REMAINS WITH THE USER.
-******************************************************************** -->
 <Configuration>
     <SelectionSets>
         <SelectionSet>
-            <Name>FileSystemTypes</Name>
+            <Name>Format.PerfCounter</Name>
             <Types>
-                <TypeName>System.IO.DirectoryInfo</TypeName>
-                <TypeName>System.IO.FileInfo</TypeName>
+                <TypeName>Format.PerformanceCounter</TypeName>
             </Types>
         </SelectionSet>
     </SelectionSets>
-    
+
     <Controls>
         <Control>
-            <Name>FileSystemTypes-GroupingFormat</Name>
+            <Name>PerfCounter-GroupingFormat</Name>
             <CustomControl>
                 <CustomEntries>
                     <CustomEntry>
@@ -35,10 +18,10 @@ REMAINS WITH THE USER.
                             <Frame>
                                 <LeftIndent>4</LeftIndent>
                                 <CustomItem>
-                                    <Text AssemblyName="System.Management.Automation" BaseName="FileSystemProviderStrings" ResourceId="DirectoryDisplayGrouping"/>
+                                    <Text AssemblyName="System.Management.Automation" BaseName="PerfCounterProviderStrings" ResourceId="PerfCounterDisplayGrouping"/>
                                     <ExpressionBinding>
                                     <ScriptBlock>
-                                        $_.PSParentPath.Replace("Microsoft.PowerShell.Core\FileSystem::", "")
+                                        $_.DateTime
                                     </ScriptBlock>
                                     </ExpressionBinding>
                                     <NewLine/>
@@ -55,50 +38,36 @@ REMAINS WITH THE USER.
 
     <ViewDefinitions>
         <View>
-            <Name>children</Name>
+            <Name>FormatPerfCounter</Name>
             <ViewSelectedBy>
-                <SelectionSetName>FileSystemTypes</SelectionSetName>
+                <SelectionSetName>Format.PerfCounter</SelectionSetName>
             </ViewSelectedBy>
             <GroupBy>
-                <PropertyName>PSParentPath</PropertyName>
-                <CustomControlName>FileSystemTypes-GroupingFormat</CustomControlName>
+                <label>TimeStamp</label>
+                <PropertyName>DateTime</PropertyName>
+                <CustomControlName>PerfCounter-GroupingFormat</CustomControlName>
             </GroupBy>
             <TableControl>
                 <TableHeaders>
-                <TableColumnHeader>
-                    <Label>Mode</Label>
-                    <Width>7</Width>
-                    <Alignment>left</Alignment>
-                </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>LastWriteTime</Label>
-                        <Width>25</Width>
-                        <Alignment>right</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>Length</Label>
-                        <Width>14</Width>
-                        <Alignment>right</Alignment>
-                    </TableColumnHeader>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
                     <TableColumnHeader/>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
-                        <Wrap/>
                         <TableColumnItems>
                             <TableColumnItem>
-                                <PropertyName>Mode</PropertyName>
+                                <PropertyName>ComputerName</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <ScriptBlock>
-                                    [String]::Format("{0,10}  {1,8}", $_.LastWriteTime.ToString("d"), $_.LastWriteTime.ToString("t"))
-                                </ScriptBlock>
+                                <PropertyName>CounterSet</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                            <PropertyName>Length</PropertyName>
+                                <PropertyName>Counter</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>Name</PropertyName>
+                                <PropertyName>Value</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
@@ -106,4 +75,4 @@ REMAINS WITH THE USER.
             </TableControl>
         </View>
     </ViewDefinitions>
-<Configuration>
+</Configuration>
