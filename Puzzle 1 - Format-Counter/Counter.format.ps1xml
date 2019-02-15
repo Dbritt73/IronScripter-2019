@@ -18,11 +18,10 @@
                             <Frame>
                                 <LeftIndent>4</LeftIndent>
                                 <CustomItem>
-                                    <Text AssemblyName="System.Management.Automation" BaseName="PerfCounterProviderStrings" ResourceId="PerfCounterDisplayGrouping"/>
                                     <ExpressionBinding>
-                                    <ScriptBlock>
-                                        $_.DateTime
-                                    </ScriptBlock>
+                                        <ScriptBlock>
+                                            "Timestamp: $($_.DateTime)"
+                                        </ScriptBlock>
                                     </ExpressionBinding>
                                     <NewLine/>
                                 </CustomItem>
@@ -43,7 +42,6 @@
                 <SelectionSetName>Format.PerfCounter</SelectionSetName>
             </ViewSelectedBy>
             <GroupBy>
-                <label>TimeStamp</label>
                 <PropertyName>DateTime</PropertyName>
                 <CustomControlName>PerfCounter-GroupingFormat</CustomControlName>
             </GroupBy>

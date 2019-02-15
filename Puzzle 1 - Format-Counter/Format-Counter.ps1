@@ -16,7 +16,7 @@ Function Format-Counter {
 
             foreach ($Counter in $obj.CounterSamples) {
 
-                $props = [Ordered]@{
+                $props = @{
 
                     'DateTime' = $Counter.TimeStamp
 
