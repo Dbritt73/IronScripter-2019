@@ -24,28 +24,29 @@ REMAINS WITH THE USER.
             </Types>
         </SelectionSet>
     </SelectionSets>
+    
     <Controls>
         <Control>
             <Name>FileSystemTypes-GroupingFormat</Name>
-                    <CustomControl>
-                        <CustomEntries>
-                            <CustomEntry>
+            <CustomControl>
+                <CustomEntries>
+                    <CustomEntry>
+                        <CustomItem>
+                            <Frame>
+                                <LeftIndent>4</LeftIndent>
                                 <CustomItem>
-                                    <Frame>
-                                        <LeftIndent>4</LeftIndent>
-                                        <CustomItem>
-                                            <Text AssemblyName="System.Management.Automation" BaseName="FileSystemProviderStrings" ResourceId="DirectoryDisplayGrouping"/>
-                                            <ExpressionBinding>
-                                            <ScriptBlock>
-                                                $_.PSParentPath.Replace("Microsoft.PowerShell.Core\FileSystem::", "")
-                                            </ScriptBlock>
-                                            </ExpressionBinding>
-                                            <NewLine/>
-                                        </CustomItem>
-                                    </Frame>
+                                    <Text AssemblyName="System.Management.Automation" BaseName="FileSystemProviderStrings" ResourceId="DirectoryDisplayGrouping"/>
+                                    <ExpressionBinding>
+                                    <ScriptBlock>
+                                        $_.PSParentPath.Replace("Microsoft.PowerShell.Core\FileSystem::", "")
+                                    </ScriptBlock>
+                                    </ExpressionBinding>
+                                    <NewLine/>
                                 </CustomItem>
-                            </CustomEntry>
-                        </CustomEntries>
+                            </Frame>
+                        </CustomItem>
+                    </CustomEntry>
+                </CustomEntries>
             </CustomControl>
         </Control>
     </Controls>
@@ -53,7 +54,7 @@ REMAINS WITH THE USER.
     <!-- ################ VIEW DEFINITIONS ################ -->
 
     <ViewDefinitions>
-    <View>
+        <View>
             <Name>children</Name>
             <ViewSelectedBy>
                 <SelectionSetName>FileSystemTypes</SelectionSetName>
