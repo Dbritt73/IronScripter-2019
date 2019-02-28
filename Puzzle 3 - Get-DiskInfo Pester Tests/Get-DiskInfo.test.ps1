@@ -3,7 +3,7 @@ Param ()
 
 Describe Get-DiskInfo {
 
-    Context -Name 'Gets disk information from one or more computers' -Fixture {
+    Context -Name 'Output Validation' -Fixture {
 
         $FunctionCall = Get-DiskInfo -ComputerName 'Localhost', 'Localhost'
 
@@ -21,7 +21,7 @@ Describe Get-DiskInfo {
 
     }
 
-    Context -Name 'Accepts computer names via parameter and pipeline' -Fixture {
+    Context -Name 'Parameter Handling' -Fixture {
 
         It 'Accepts computer name via parameter' {
 
@@ -37,7 +37,7 @@ Describe Get-DiskInfo {
 
     }
 
-    Context -Name 'Only accepts drive letters C through G' {
+    Context -Name 'Parameter Validation' {
 
         It 'Accepts Drive letter in range of C - G' {
 
