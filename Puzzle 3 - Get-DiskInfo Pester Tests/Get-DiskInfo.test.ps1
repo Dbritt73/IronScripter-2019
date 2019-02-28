@@ -21,9 +21,37 @@ Describe Get-DiskInfo {
 
     }
 
-    It 'Accepts computer names via parameter and pipeline' {$true | should be $true}
+    Context -Name 'Accepts computer names via parameter and pipeline' -Fixture {
 
-    It 'Only accepts drive letters C through G' {}
+        It 'Accepts computer name via parameter' {
+
+            Get-DiskInfo -ComputerName 'Localhost' | Should be $true
+
+        }
+
+        It 'Accepts computer name via pipeline' {
+
+            'Localhost' | Get-DiskInfo | should be $true
+
+        }
+
+    }
+
+    Context -Name 'Only accepts drive letters C through G' {
+
+        It 'Accepts Drive letter in range of C - G' {
+
+            Get-DiskInfo -ComputerName 'LocalHost' -Drive 'C' | Should be $true
+
+        }
+
+        It 'Rejects drive letters outside of range C - G' {
+
+            {Get-DiskInfo -ComputerName 'LocalHost' -Drive 'H'} | Should Throw
+
+        }
+
+    }
 
     It 'Errors logged to a text file with a file names that include a timestamp in the form YearMonthDayHourMinute' {}
 
