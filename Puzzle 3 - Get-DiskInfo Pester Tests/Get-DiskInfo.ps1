@@ -1,11 +1,11 @@
 Function Get-DiskInfo {
   <#
     .SYNOPSIS
-    Get disk information from one or more systems
+    Get disk information from one or more computers
 
     .DESCRIPTION
     Get-DiskInfo is a function that utilizes the existing Cmdlet (Get-Volume) to remotley gather disk information on the
-    specified drive letter from one or more systems over CIM Sessions
+    specified drive letter from one or more computers over CIM Sessions
 
     .PARAMETER Computername
     Name of Computer(s) you want to query disk information on
@@ -14,7 +14,7 @@ Function Get-DiskInfo {
     Drive letter of the computer to query
 
     .PARAMETER LogPath
-    File path to save the error log
+    Folder path to save the error log
 
     .EXAMPLE
     Get-DiskInfo -Computername SERVER01 -Drive 'C' -LogPath $ENV:TEMP
@@ -37,7 +37,6 @@ Function Get-DiskInfo {
     .OUTPUTS
     Report.DiskInfo
   #>
-
 
     [cmdletbinding()]
     Param(
