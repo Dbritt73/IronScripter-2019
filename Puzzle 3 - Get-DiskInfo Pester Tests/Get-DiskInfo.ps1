@@ -102,7 +102,7 @@ Function Get-DiskInfo {
 
     End {
 
-        If ((Test-Path -path $errorLog) -AND $newErrors) {
+        If ((Test-Path -path $errorLog) -And $newErrors) {
 
             Write-Warning -Message "Errors have been logged to $errorlog"
 

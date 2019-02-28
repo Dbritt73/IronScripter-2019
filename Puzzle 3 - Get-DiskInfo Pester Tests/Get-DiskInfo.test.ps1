@@ -47,12 +47,31 @@ Describe Get-DiskInfo {
 
         It 'Rejects drive letters outside of range C - G' {
 
+            #Curly braces required to pass test
             {Get-DiskInfo -ComputerName 'LocalHost' -Drive 'H'} | Should Throw
 
         }
 
     }
 
-    It 'Errors logged to a text file with a file names that include a timestamp in the form YearMonthDayHourMinute' {}
+    Context -Name 'Error Logging' -Fixture {
+
+        $LogFile = Get-DiskInfo -ComputerName 'LocalHost' -Drive 'D' 3>&1
+
+        It 'Generates a log file' {
+
+            Test-path ($LogFile -split ' ')[5] | should be $true
+
+        }
+
+        It 'Log file name includes time stamp in the YearMonthDayHourMinute format' {
+
+            $file = Split-Path (($LogFile -split ' ')[5]) -Leaf
+
+            ($file -like "$(Get-Date -format 'yyyyMMddhhmm')*") | should be $true
+
+        }
+
+    }
 
 }
