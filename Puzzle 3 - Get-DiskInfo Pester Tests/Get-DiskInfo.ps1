@@ -23,7 +23,6 @@ Function Get-DiskInfo {
     was executed
 
     .NOTES
-    Author: Darrin Britton
     Date: 2/27/2019
     My Solution to puzzle 3 of the 2019 Iron Scripter challenge
 
