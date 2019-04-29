@@ -115,8 +115,6 @@ function Get-CaesarCipher {
         $OutText = $stringBuilder.ToString()
         Write-Output -InputObject $OutText
 
-        $OutText = $null
-
     }
 
     End {}
