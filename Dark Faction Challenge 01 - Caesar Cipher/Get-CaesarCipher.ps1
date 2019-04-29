@@ -64,6 +64,7 @@ function Get-CaesarCipher {
     Begin {
 
         $ASCIIRange = [char]' '..[char]'~'
+        $stringBuilder = New-Object System.Text.StringBuilder
 
     }
 
@@ -107,11 +108,13 @@ function Get-CaesarCipher {
             }
 
             $Char = [char]$Char
-            [string]$OutText += $Char
+            $null = $stringBuilder.Append($char)
 
         }
 
-        $OutText
+        $OutText = $stringBuilder.ToString()
+        Write-Output -InputObject $OutText
+
         $OutText = $null
 
     }
