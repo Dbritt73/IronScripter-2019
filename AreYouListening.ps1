@@ -1,4 +1,4 @@
-Function Get-Something {
+Function Get-NetTcpIpv4Connection {
     <#
     .SYNOPSIS
         Get ...
